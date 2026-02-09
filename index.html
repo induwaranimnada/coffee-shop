@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nimna Coffee - Experience the perfect brew</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'coffee-dark': '#2C1810',
+                        'coffee-primary': '#8B4513',
+                        'coffee-light': '#D2691E',
+                        'coffee-cream': '#F5DEB3',
+                        'gold': '#DAA520',
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #8B4513;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #DAA520;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-white font-sans antialiased">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-gray-900/90 backdrop-blur-md border-b border-white/10"
+        id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="flex items-center gap-2">
+                        <span class="text-3xl font-serif font-bold text-coffee-cream">Nimna<span
+                                class="text-gold">Coffee</span></span>
+                    </a>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html"
+                            class="text-coffee-cream hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors border-b-2 border-gold">Home</a>
+                        <a href="menu.html"
+                            class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors hover:border-b-2 hover:border-gold border-transparent border-b-2">Menu</a>
+                        <a href="about.html"
+                            class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors hover:border-b-2 hover:border-gold border-transparent border-b-2">About
+                            Us</a>
+                        <a href="contact.html"
+                            class="bg-gradient-to-r from-coffee-primary to-coffee-light hover:from-coffee-light hover:to-coffee-primary text-white px-6 py-2 rounded-full text-sm font-medium transition-all transform hover:scale-105 shadow-lg">Contact</a>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" onclick="toggleMenu()"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700/50 focus:outline-none transition-colors">
+                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Panel -->
+        <div class="hidden md:hidden bg-gray-900 border-t border-gray-800" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="text-gold block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="menu.html"
+                    class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Menu</a>
+                <a href="about.html"
+                    class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About Us</a>
+                <a href="contact.html"
+                    class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative h-screen flex items-center justify-center hero-bg">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900"></div>
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-7xl font-serif font-bold text-white mb-6 text-shadow animate-fade-in-up">
+                Discover the <span class="text-gold">Perfect Brew</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-10 font-light max-w-2xl mx-auto">
+                Hand-picked beans, roasted to perfection, brewed with passion. Welcome to Nimna Coffee, where every cup
+                tells a story.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="menu.html"
+                    class="bg-gold hover:bg-yellow-600 text-gray-900 font-bold py-4 px-10 rounded-full transition-all transform hover:scale-105 shadow-xl hover:shadow-gold/20">
+                    View Menu
+                </a>
+                <a href="about.html"
+                    class="border-2 border-white hover:border-gold hover:text-gold text-white font-bold py-4 px-10 rounded-full transition-all backdrop-blur-sm hover:bg-white/5">
+                    Our Story
+                </a>
+            </div>
+        </div>
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3">
+                </path>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-4">Why Choose Us?</h2>
+                <div class="w-24 h-1 bg-gold mx-auto rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Feature 1 -->
+                <div
+                    class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-gold/50 transition-all hover:transform hover:-translate-y-2 group text-center animate-on-scroll opacity-0 translate-y-10 duration-700">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-coffee-primary to-gold rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform shadow-lg shadow-gold/20">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Premium Quality</h3>
+                    <p class="text-gray-400">We source only the finest beans from sustainable farms around the world to
+                        ensure every sip is perfect.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div
+                    class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-gold/50 transition-all hover:transform hover:-translate-y-2 group text-center animate-on-scroll opacity-0 translate-y-10 duration-700 delay-100">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-coffee-primary to-gold rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform shadow-lg shadow-gold/20">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Fast Service</h3>
+                    <p class="text-gray-400">Our expert baristas craft your coffee with speed and precision, so you
+                        never have to wait for greatness.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div
+                    class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-gold/50 transition-all hover:transform hover:-translate-y-2 group text-center animate-on-scroll opacity-0 translate-y-10 duration-700 delay-200">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-coffee-primary to-gold rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform shadow-lg shadow-gold/20">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Made with Love</h3>
+                    <p class="text-gray-400">Every cup is poured with care and passion, creating not just a drink, but a
+                        memorable experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Sellers Preview -->
+    <section class="py-20 bg-gray-800 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none"
+            style="background-image: url('https://www.transparenttextures.com/patterns/coffee.png');"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row items-center justify-between mb-12">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-2">Our Classics</h2>
+                    <p class="text-gray-400">Taste the best-sellers loved by our community</p>
+                </div>
+                <a href="menu.html"
+                    class="mt-4 md:mt-0 text-gold hover:text-white font-medium flex items-center gap-2 group transition-colors">
+                    View Full Menu
+                    <span class="transform group-hover:translate-x-1 transition-transform">→</span>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Item 1 -->
+                <div class="bg-gray-900 rounded-2xl overflow-hidden group shadow-lg cursor-pointer">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Cappuccino"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div
+                            class="absolute top-4 right-4 bg-gold text-gray-900 font-bold px-3 py-1 rounded-full text-sm">
+                            $4.50</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Classic Cappuccino</h3>
+                        <p class="text-gray-400 text-sm mb-4">Rich espresso topped with steamed milk foam and a dusting
+                            of cocoa.</p>
+                        <button
+                            class="w-full bg-gray-800 hover:bg-gold hover:text-gray-900 text-white font-medium py-2 rounded-lg transition-colors border border-gray-700 hover:border-gold">Order
+                            Now</button>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="bg-gray-900 rounded-2xl overflow-hidden group shadow-lg cursor-pointer">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1517701604599-bb29b5dd7359?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Latte"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div
+                            class="absolute top-4 right-4 bg-gold text-gray-900 font-bold px-3 py-1 rounded-full text-sm">
+                            $5.00</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Hazelnut Latte</h3>
+                        <p class="text-gray-400 text-sm mb-4">Smooth espresso with steamed milk and premium hazelnut
+                            syrup.</p>
+                        <button
+                            class="w-full bg-gray-800 hover:bg-gold hover:text-gray-900 text-white font-medium py-2 rounded-lg transition-colors border border-gray-700 hover:border-gold">Order
+                            Now</button>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="bg-gray-900 rounded-2xl overflow-hidden group shadow-lg cursor-pointer">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Espresso"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div
+                            class="absolute top-4 right-4 bg-gold text-gray-900 font-bold px-3 py-1 rounded-full text-sm">
+                            $3.50</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Double Espresso</h3>
+                        <p class="text-gray-400 text-sm mb-4">A powerful shot of our signature blend for the true coffee
+                            lover.</p>
+                        <button
+                            class="w-full bg-gray-800 hover:bg-gold hover:text-gray-900 text-white font-medium py-2 rounded-lg transition-colors border border-gray-700 hover:border-gold">Order
+                            Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 text-white py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-1">
+                    <span class="text-2xl font-serif font-bold text-coffee-cream mb-4 block">Nimna<span
+                            class="text-gold">Coffee</span></span>
+                    <p class="text-gray-400 text-sm">Brewing happiness, one cup at a time. Join us for the ultimate
+                        coffee experience.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-gold">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="menu.html" class="hover:text-white transition-colors">Menu</a></li>
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-gold">Contact</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>123 Coffee Street, Colombo</li>
+                        <li>hello@nimnacoffee.com</li>
+                        <li>+94 77 123 4567</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-gold">Newsletter</h4>
+                    <form class="flex flex-col gap-2">
+                        <input type="email" placeholder="Your email"
+                            class="bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-gold">
+                        <button
+                            class="bg-gold text-gray-900 font-bold py-2 rounded-lg hover:bg-yellow-600 transition-colors text-sm">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
+                &copy; 2026 Nimna Coffee. All rights reserved. Designed with ❤️ by Antigravity.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
